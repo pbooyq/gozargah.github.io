@@ -30,7 +30,7 @@ title: فعال سازی CloudFlare Warp
 - ابتدا باید `Asset` مورد نیاز رو از بخش [releases](https://github.com/ViRb3/wgcf/releases) دانلود کنید ، این فایل بسته به پردازنده متفاوت می باشد.
 - با دستور `wget` میتوانید این کار را انجام دهید.
 ```bash
-wget https://github.com/ViRb3/wgcf/releases/download/v2.2.16/wgcf_2.2.18_linux_amd64
+wget https://github.com/ViRb3/wgcf/releases/download/v2.2.18/wgcf_2.2.18_linux_amd64
 ```
 مسیر فایل رو به `/usr/bin/` تغییر داده و اسم اون رو به `wgcf` تغییر بدید.
 ```bash
@@ -55,11 +55,11 @@ wgcf generate
 :::
 سپس باید اطلاعات کانفیگ ها رو بروزرسانی کنید.
 ```bash
-`wgcf update`
+wgcf update
 ```
 سپس باید فایل کانفیگ جدیدی ایجاد کنید.
 ```bash
-`wgcf generate`
+wgcf generate
 ```
 
 ## قدم سوم : فعالسازی Warp روی مرزبان
@@ -73,6 +73,7 @@ wgcf generate
 
 - وارد بخش Core Setting در پنل مرزبان شوید.
 - ابتدا یک outbound همانند نمونه اضافه می کنیم و اطلاعات فایل `wgcf-profile.conf` را در آن جایگذاری می کنیم.
+- قسمت secretKey همان PrivateKey را وارد کنید
 
 ```json
 {
@@ -177,7 +178,7 @@ sudo systemctl disable --now wg-quick@warp
 {
     "outboundTag": "warp",
     "domain": [
-        "geosite:google"
+        "geosite:google",
         "openai.com",
         "ai.com",
         "ipinfo.io",
